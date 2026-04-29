@@ -31,11 +31,7 @@ agg_df = df.groupby("code").agg({
 print(f"Total unique products in sales data: {len(agg_df)}")
 
 # Since there is no explicit mapping between product codes and the provided images,
-<<<<<<< HEAD
-# we will randomly assign available images to the product codes for this demonstration.
-=======
-# i will randomly assign available images to the product codes for this demonstration.
->>>>>>> 28e3bb6 (chore: improve code documentation and reproducibility in training script)
+
 print("Mapping images to product codes...")
 available_images = [f for f in os.listdir(IMAGE_DIR) if f.endswith(('.jpeg', '.jpg', '.png'))]
 
