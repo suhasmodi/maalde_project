@@ -1,0 +1,44 @@
+
+                                          AI/ML Hiring Task: Design Demand Prediction Engine
+
+
+
+Objective
+
+Build a system that predicts how many qty a new product design can sell based on past data (images + sales).
+
+Data Provided
+
+- ~181 design images
+Click the link below to get the images:
+https://drive.google.com/drive/folders/1PxLPhLtTpt1YR1hisvHeRZ1U-3sKV6EM?usp=drive_link
+Check the next sheet to get the Sales Data
+
+Must Answer Questions
+
+1. How did you approach this problem? Explain full plan and execution.
+2. How does your prediction system work? (logic/model)
+3. What patterns did you find in the data?
+4. Where can your system fail?
+"5. If you had more time, how would you improve this system?"
+
+Deliverables
+- Working UI
+- Sample outputs
+
+Submission Instructions
+- Upload source code to GitHub.
+"- Include README.md with Full Name, Mobile No and setup instructions."
+- Optional seed script.
+- Optional demo video.
+
+Submission Email:
+developer.maalde@gmail.com
+support@maalde.in
+
+Time Limit
+48–72 hours
+
+Evaluation Note
+
+"We are not looking for perfect accuracy. We are evaluating your thinking, approach, and problem-solving ability."
