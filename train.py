@@ -14,12 +14,10 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 
-# --- 1. CONFIGURATION ---
 DATA_FILE = "AI ML Task Sheet - sales data.csv"
 IMAGE_DIR = "1"
 MODEL_PATH = "demand_model.pkl"
 
-# --- 2. LOAD & AGGREGATE SALES DATA ---
 print("Loading sales data...")
 df = pd.read_csv(DATA_FILE)
 
@@ -32,9 +30,8 @@ agg_df = df.groupby("code").agg({
 
 print(f"Total unique products in sales data: {len(agg_df)}")
 
-# --- 3. MOCK IMAGE MAPPING ---
 # Since there is no explicit mapping between product codes and the provided images,
-# we will randomly assign available images to the product codes for this demonstration.
+# i will randomly assign available images to the product codes for this demonstration.
 print("Mapping images to product codes...")
 available_images = [f for f in os.listdir(IMAGE_DIR) if f.endswith(('.jpeg', '.jpg', '.png'))]
 
@@ -101,6 +98,8 @@ model=RandomForestRegressor(
     max_depth=8,
     random_state=42
 )
+
+
 model.fit(X_train, y_train)
 
 # --- 7. EVALUATION ---
