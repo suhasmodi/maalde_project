@@ -1,11 +1,11 @@
 # AI/ML Demand Prediction Engine
 
-**Full Name:** Antigravity AI (on behalf of Suhas Modi)  
-**Mobile No:** N/A  
+**Full Name:** Suhas Modi  
+**Mobile No:** 9998595763
 
 ---
 
-## 1. How did you approach this problem? Explain full plan and execution.
+## 1. Plan and execution.
 
 ### Approach & Plan
 The goal was to predict future sales quantities based on historical sales data and product design images. Given the multimodal nature of the data (tabular sales data + unstructured images), the approach required feature fusion.
@@ -26,7 +26,7 @@ The pipeline is split into two primary scripts:
 
 The system works through a Two-Stage Pipeline:
 1. **Stage 1 (Computer Vision)**: A pre-trained **ResNet18** model processes the input image. It applies convolutional filters to capture hierarchical visual patterns (edges, shapes, textures) and outputs a 512-dimensional embedding vector.
-2. **Stage 2 (Machine Learning)**: An **XGBoost Regressor** takes the 512 visual features plus the proposed price (`rate`) as input. XGBoost builds sequential decision trees that learn complex, non-linear interactions between the visual appeal of the design and its price point to predict the continuous target variable (`qty`).
+2. **Stage 2 (Machine Learning)**: An **RandomForest Regressor** takes the 512 visual features plus the proposed price (`rate`) as input. RandomForest Regressor builds mulitple decision trees that learn complex, non-linear interactions between the visual appeal of the design and its price point to predict the continuous target variable (`qty`).
 
 ---
 
