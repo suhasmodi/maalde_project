@@ -31,13 +31,18 @@ agg_df = df.groupby("code").agg({
 print(f"Total unique products in sales data: {len(agg_df)}")
 
 # Since there is no explicit mapping between product codes and the provided images,
+<<<<<<< HEAD
 # we will randomly assign available images to the product codes for this demonstration.
+=======
+# i will randomly assign available images to the product codes for this demonstration.
+>>>>>>> 28e3bb6 (chore: improve code documentation and reproducibility in training script)
 print("Mapping images to product codes...")
 available_images = [f for f in os.listdir(IMAGE_DIR) if f.endswith(('.jpeg', '.jpg', '.png'))]
 
 if not available_images:
     raise FileNotFoundError(f"No images found in the '{IMAGE_DIR}' directory.")
 
+# Deterministic random assignment for reproducibility
 random.seed(42)
 code_to_image = {}
 for code in agg_df['code'].unique():
@@ -65,7 +70,7 @@ def extract_image_features(img_path):
     try:
         image = Image.open(img_path).convert("RGB")
         input_tensor = preprocess(image)
-        input_batch = input_tensor.unsqueeze(0) 
+        input_batch = input_tensor.unsqueeze(0) # Create a mini-batch as expected by the model
 
         with torch.no_grad():
             output = resnet(input_batch)
@@ -77,6 +82,7 @@ def extract_image_features(img_path):
 print("Extracting features from images (this may take a minute)...")
 agg_df['image_features'] = agg_df['image_path'].apply(extract_image_features)
 
+# --- 5. DATASET PREPARATION ---
 # Combine features: [Rate] + [Image Features (512 dims)]
 print("Preparing dataset for training...")
 X_rate = agg_df[['rate']].values
@@ -84,8 +90,10 @@ X_image = np.vstack(agg_df['image_features'].values)
 X = np.hstack((X_rate, X_image)) # Final feature matrix
 y = agg_df['qty'].values
 
+# Train-Test Split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+# --- 6. MODEL TRAINING (XGBoost) ---
 print("Training XGBoost Regressor...")
 
 
