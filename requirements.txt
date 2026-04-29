@@ -4,3 +4,5 @@ xgboost
 torch
 torchvision
 Pillow
+Flask
+Werkzeug

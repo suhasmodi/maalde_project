@@ -77,8 +77,15 @@ python train.py
 ```
 *This will aggregate the data, extract features, train the model, and save `demand_model.pkl`.*
 
-### 4. Run Inference
-To predict the demand for a new design, run:
+### 4. Run Inference (Command Line)
+To predict the demand for a new design via CLI, run:
 ```bash
 python predict.py --image "path/to/your/image.jpeg" --rate 1295
 ```
+
+### 5. Run Web UI
+To launch the premium web interface:
+```bash
+python app.py
+```
+*Then open your browser and navigate to `http://127.0.0.1:5000` to interact with the model via a drag-and-drop GUI.*

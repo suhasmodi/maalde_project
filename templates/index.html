@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Demand Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container glass-panel">
+        <header>
+            <h1>Predict Demand</h1>
+            <p>Upload your design and propose a price to get AI-driven sales quantity estimates.</p>
+        </header>
+
+        <form id="prediction-form" class="form-grid">
+            <div class="upload-section">
+                <label for="image-upload" class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        <span id="upload-text">Click to browse or drag image here</span>
+                    </div>
+                    <img id="image-preview" src="" alt="Preview" style="display: none;">
+                </label>
+                <input type="file" id="image-upload" name="image" accept="image/jpeg, image/png, image/jpg" required hidden>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="rate">Proposed Rate (₹)</label>
+                    <input type="number" id="rate" name="rate" placeholder="e.g. 1295" step="0.01" required>
+                </div>
+                
+                <button type="submit" id="submit-btn" class="gradient-btn">
+                    <span id="btn-text">Generate Prediction</span>
+                    <div id="loading-spinner" class="spinner" style="display: none;"></div>
+                </button>
+            </div>
+        </form>
+
+        <div id="result-container" class="result-card hidden">
+            <h3>Estimated Sales</h3>
+            <div class="result-value">
+                <span id="predicted-qty">--</span>
+                <span class="units">Units</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
